@@ -1,31 +1,22 @@
-import { createRouter, createWebHashHistory } from 'vue-router'
 import type { RouteRecordRaw } from 'vue-router'
+import { createRouter, createWebHashHistory } from 'vue-router'
 
-const ROUTES = {
-  BACKOFFICE: {
-    name: 'BackOffice',
-    path: 'back-office'
-  }
-} as const
+import {
+  BACK_OFFICE,
+  backOfficeRoutes
+} from '@/features/back-office/router'
 
 const routes: RouteRecordRaw[] = [
   {
     path: '/',
-    redirect: `/${ROUTES.BACKOFFICE.path}`
-  },
-  {
-    path: `/${ROUTES.BACKOFFICE.path}`,
-    name: `/${ROUTES.BACKOFFICE.name}`,
-    component: () => import('@/views/BackOffice.vue'),
-    meta: {
-      title: 'Flight Subscription Management - Caravelo Back Office'
-    }
+    redirect: BACK_OFFICE.MAIN.path
   },
   {
     path: '/:pathMatch(.*)*',
     name: 'NotFound',
-    redirect: `/${ROUTES.BACKOFFICE.path}`
-  }
+    redirect: BACK_OFFICE.MAIN.path
+  },
+  ...backOfficeRoutes
 ]
 
 const router = createRouter({
