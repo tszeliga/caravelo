@@ -6,7 +6,7 @@ interface AppConfig {
 
 export const appConfig: AppConfig = {
   api: {
-    baseUrl: import.meta.env.VITE_API_BASE_URL
+    baseUrl: 'https://tools-httpstatus.pickup-services.com'
   }
 }
 
