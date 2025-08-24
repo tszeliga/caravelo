@@ -10,9 +10,6 @@
     "test": "vitest --run",
     "test:watch": "vitest",
     "test:coverage": "vitest --coverage",
-    "test:e2e": "playwright test",
-    "test:e2e:ui": "playwright test --ui",
-    "test:e2e:debug": "playwright test --debug",
     "type-check": "vue-tsc --noEmit",
     "lint": "eslint . --fix",
     "format": "prettier --write .",
@@ -39,7 +36,6 @@
     "vuetify": "^3.9.5"
   },
   "devDependencies": {
-    "@playwright/test": "^1.55.0",
     "@prettier/plugin-pug": "^3.4.2",
     "@types/node": "^24.3.0",
     "@vue/eslint-config-typescript": "^14.6.0",
