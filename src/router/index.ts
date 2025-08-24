@@ -1,10 +1,7 @@
 import type { RouteRecordRaw } from 'vue-router'
 import { createRouter, createWebHashHistory } from 'vue-router'
 
-import {
-  BACK_OFFICE,
-  backOfficeRoutes
-} from '@/features/back-office/router'
+import { BACK_OFFICE, backOfficeRoutes } from '@/features/back-office/router'
 
 const routes: RouteRecordRaw[] = [
   {

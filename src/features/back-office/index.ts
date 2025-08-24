@@ -1,6 +1,4 @@
-// Back Office Feature Exports
-export { default as BackOfficeHeader } from './components/BackOfficeHeader.vue'
-export { default as BackOffice } from './views/BackOffice.vue'
+export { default as BackOfficeHeader } from '@back-office/components/BackOfficeHeader.vue'
+export { default as BackOffice } from '@back-office/views/BackOffice.vue'
 
-// Router exports
-export { backOfficeRoutes } from './router'
+export { backOfficeRoutes } from '@back-office/router'

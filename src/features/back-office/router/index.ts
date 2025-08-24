@@ -18,13 +18,13 @@ export const BACK_OFFICE = {
     path: '/back-office',
     meta: {
       title: 'Flight Subscription Management - Caravelo Back Office',
-      feature: 'back-office',
-    },
-  },
+      feature: 'back-office'
+    }
+  }
 } satisfies Record<string, RouteDef>
 
 export type BackOfficeKey = keyof typeof BACK_OFFICE
-export type BackOfficePath = typeof BACK_OFFICE[BackOfficeKey]['path']
+export type BackOfficePath = (typeof BACK_OFFICE)[BackOfficeKey]['path']
 
 // 3) Build actual routes
 export const backOfficeRoutes: RouteRecordRaw[] = [
@@ -32,7 +32,6 @@ export const backOfficeRoutes: RouteRecordRaw[] = [
     path: BACK_OFFICE.MAIN.path,
     name: BACK_OFFICE.MAIN.name,
     component: () => import('@/features/back-office/views/BackOffice.vue'),
-    meta: BACK_OFFICE.MAIN.meta,
-
-  },
+    meta: BACK_OFFICE.MAIN.meta
+  }
 ]

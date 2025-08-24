@@ -1,8 +1,11 @@
+import type {
+  QuotaAdjustment,
+  QuotaAdjustmentResponse
+} from '@quota/types/quota'
 import { API_ENDPOINTS } from '@shared/constants/api'
 import { httpClient } from '@shared/services/api/httpClient'
 import type { ApiResponse } from '@shared/types/api'
 import { AxiosError } from 'axios'
-import type { QuotaAdjustment, QuotaAdjustmentResponse } from '../types/quota'
 export interface QuotaServiceInterface {
   adjustQuota(adjustment: QuotaAdjustment): Promise<QuotaAdjustmentResponse>
 }
