@@ -23,9 +23,6 @@ export const BACK_OFFICE = {
   }
 } satisfies Record<string, RouteDef>
 
-export type BackOfficeKey = keyof typeof BACK_OFFICE
-export type BackOfficePath = (typeof BACK_OFFICE)[BackOfficeKey]['path']
-
 // 3) Build actual routes
 export const backOfficeRoutes: RouteRecordRaw[] = [
   {
