@@ -1,0 +1,51 @@
+{
+  "name": "caravelo",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "vite",
+    "build": "vue-tsc && vite build",
+    "preview": "vite preview",
+    "test": "vitest --run",
+    "test:watch": "vitest",
+    "test:coverage": "vitest --coverage",
+    "type-check": "vue-tsc --noEmit",
+    "lint": "eslint . --fix",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "format:vue": "prettier --write \"src/**/*.vue\"",
+    "format:ts": "prettier --write \"src/**/*.{ts,js}\""
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "dependencies": {
+    "@mdi/font": "^7.4.47",
+    "@vitejs/plugin-vue": "^6.0.1",
+    "@vue/tsconfig": "^0.8.1",
+    "axios": "^1.11.0",
+    "pinia": "^2.3.1",
+    "sass": "^1.90.0",
+    "typescript": "^5.9.2",
+    "vite": "^5.4.19",
+    "vite-plugin-vuetify": "^2.1.2",
+    "vue": "^3.5.18",
+    "vue-router": "^4.5.1",
+    "vuetify": "^3.9.5"
+  },
+  "devDependencies": {
+    "@prettier/plugin-pug": "^3.4.2",
+    "@types/node": "^24.3.0",
+    "@vue/eslint-config-typescript": "^14.6.0",
+    "@vue/test-utils": "^2.4.6",
+    "eslint": "^9.33.0",
+    "jsdom": "^26.1.0",
+    "playwright": "^1.55.0",
+    "prettier": "^3.6.2",
+    "prettier-plugin-organize-imports": "^4.2.0",
+    "vitest": "^3.2.4",
+    "vue-tsc": "^3.0.6"
+  }
+}
