@@ -317,7 +317,6 @@ describe('useNumberStepper', () => {
       expect(updateModelValue).toHaveBeenCalledWith(-600)
       expect(focus).toHaveBeenCalled()
     })
-
   })
 
   describe('boundary conditions', () => {
@@ -336,11 +335,9 @@ describe('useNumberStepper', () => {
       decrement()
       expect(updateModelValue).toHaveBeenCalledWith(-1)
     })
-
   })
 
   describe('integration scenarios', () => {
-    
     it('should handle disabled state correctly', () => {
       const { emit, updateModelValue, focus } = createMockEmit()
       const props = { ...defaultProps, modelValue: 2, disabled: true }

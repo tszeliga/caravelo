@@ -24,7 +24,6 @@ export interface QuotaServiceInterface {
  * Provides error handling, type-safe responses, and business logic abstraction.
  */
 class QuotaService implements QuotaServiceInterface {
-
   async adjustQuota({
     subscriberId,
     newQuota,

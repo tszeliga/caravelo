@@ -47,7 +47,6 @@ describe('useQuotaModal', () => {
 
       expect(mockEmit).toHaveBeenCalledWith('update:modelValue', false)
     })
-
   })
 
   describe('handleClose', () => {
