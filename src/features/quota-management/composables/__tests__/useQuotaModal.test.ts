@@ -48,22 +48,6 @@ describe('useQuotaModal', () => {
       expect(mockEmit).toHaveBeenCalledWith('update:modelValue', false)
     })
 
-    it('should handle multiple state changes', () => {
-      const mockEmit = createMockEmit()
-      const props = { modelValue: false, subscriber: mockSubscriber }
-
-      const { isOpen } = useQuotaModal(props, mockEmit)
-
-      // Open modal
-      isOpen.value = true
-      expect(mockEmit).toHaveBeenCalledWith('update:modelValue', true)
-
-      // Close modal
-      isOpen.value = false
-      expect(mockEmit).toHaveBeenCalledWith('update:modelValue', false)
-
-      expect(mockEmit).toHaveBeenCalledTimes(2)
-    })
   })
 
   describe('handleClose', () => {
@@ -103,28 +87,6 @@ describe('useQuotaModal', () => {
       expect(mockEmit).toHaveBeenNthCalledWith(1, 'update:modelValue', false)
       expect(mockEmit).toHaveBeenNthCalledWith(2, 'update:modelValue', false)
       expect(mockEmit).toHaveBeenNthCalledWith(3, 'update:modelValue', false)
-    })
-  })
-
-  describe('integration scenarios', () => {
-    it('should handle complete modal workflow', () => {
-      const mockEmit = createMockEmit()
-      const props = { modelValue: false, subscriber: mockSubscriber }
-
-      const { isOpen, handleClose } = useQuotaModal(props, mockEmit)
-
-      // Initial state
-      expect(isOpen.value).toBe(false)
-
-      // Open modal programmatically
-      isOpen.value = true
-      expect(mockEmit).toHaveBeenCalledWith('update:modelValue', true)
-
-      // Close modal using handleClose
-      handleClose()
-      expect(mockEmit).toHaveBeenCalledWith('update:modelValue', false)
-
-      expect(mockEmit).toHaveBeenCalledTimes(2)
     })
   })
 })

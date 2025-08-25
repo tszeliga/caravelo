@@ -9,7 +9,6 @@ interface UseNumberStepperProps {
   placeholder?: string
 }
 
-// No need to use toRefs for reactivity
 export function useNumberStepper(
   props: UseNumberStepperProps,
   emit: {

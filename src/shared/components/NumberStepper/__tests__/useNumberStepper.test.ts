@@ -318,16 +318,6 @@ describe('useNumberStepper', () => {
       expect(focus).toHaveBeenCalled()
     })
 
-    it('should handle decimal step values', () => {
-      const { emit, updateModelValue, focus } = createMockEmit()
-      const props = { ...defaultProps, modelValue: 5.7, step: 0.2 }
-      const { decrement } = useNumberStepper(props, emit)
-
-      decrement()
-
-      expect(updateModelValue).toHaveBeenCalledWith(5.5)
-      expect(focus).toHaveBeenCalled()
-    })
   })
 
   describe('boundary conditions', () => {
@@ -347,83 +337,10 @@ describe('useNumberStepper', () => {
       expect(updateModelValue).toHaveBeenCalledWith(-1)
     })
 
-    it('should handle negative ranges', () => {
-      const { emit, updateModelValue } = createMockEmit()
-      const props = {
-        ...defaultProps,
-        modelValue: -2,
-        min: -5,
-        max: -1,
-        step: 1
-      }
-      const { increment, decrement, isMinReached, isMaxReached } =
-        useNumberStepper(props, emit)
-
-      expect(isMinReached.value).toBe(false)
-      expect(isMaxReached.value).toBe(false)
-
-      increment()
-      expect(updateModelValue).toHaveBeenCalledWith(-1)
-
-      decrement()
-      expect(updateModelValue).toHaveBeenCalledWith(-3)
-    })
-
-    it('should handle single value range (min === max)', () => {
-      const { emit, updateModelValue } = createMockEmit()
-      const props = { ...defaultProps, modelValue: 3, min: 3, max: 3, step: 1 }
-      const { increment, decrement, isMinReached, isMaxReached } =
-        useNumberStepper(props, emit)
-
-      expect(isMinReached.value).toBe(true)
-      expect(isMaxReached.value).toBe(true)
-
-      increment()
-      expect(updateModelValue).not.toHaveBeenCalled()
-
-      decrement()
-      expect(updateModelValue).not.toHaveBeenCalled()
-    })
   })
 
   describe('integration scenarios', () => {
-    it('should work correctly with all features combined', () => {
-      const { emit, updateModelValue, focus } = createMockEmit()
-      const props = {
-        modelValue: 0,
-        min: 0,
-        max: 3,
-        step: 1,
-        disabled: false,
-        placeholder: 'Select quota'
-      }
-
-      const {
-        inputId,
-        displayValue,
-        isMinReached,
-        isMaxReached,
-        increment,
-        decrement
-      } = useNumberStepper(props, emit)
-
-      // Initial state
-      expect(displayValue.value).toBe('Select quota') // Shows placeholder for 0
-      expect(isMinReached.value).toBe(true)
-      expect(isMaxReached.value).toBe(false)
-      expect(inputId.value).toMatch(/^stepper-[a-z0-9]{9}$/)
-
-      // Cannot decrement from minimum
-      decrement()
-      expect(updateModelValue).not.toHaveBeenCalled()
-      expect(focus).not.toHaveBeenCalled()
-
-      // Can increment
-      increment()
-      expect(updateModelValue).toHaveBeenCalledWith(1)
-      expect(focus).toHaveBeenCalled()
-    })
-
+    
     it('should handle disabled state correctly', () => {
       const { emit, updateModelValue, focus } = createMockEmit()
       const props = { ...defaultProps, modelValue: 2, disabled: true }

@@ -1,20 +1,5 @@
 # Caravelo Flight Quota Management
 
-> Vue 3 + TypeScript application implementing a modal-based quota management interface for airline back office operations.
-
-**✅ Recently Completed:**
-
-- ✅ Core quota adjustment form with validation
-- ✅ Business rule enforcement (0-3 quota limits)
-- ✅ Context-sensitive reason selection
-- ✅ Comprehensive unit test coverage (94 tests passing)
-- ✅ TypeScript strict mode with full type safety
-- ✅ Modern Vue 3 Composition API architecture
-- ✅ Notification system with smooth animations
-- ✅ Error handling and user feedback
-- ✅ API service layer with comprehensive documentation
-- ✅ Store management with Pinia integration
-
 ## 🏗️ Architecture & Project Structure
 
 This project follows a **feature-based modular architecture** with clean separation of concerns:
@@ -65,34 +50,10 @@ src/
 └── router/                 # Vue Router (future expansion)
 ```
 
-### 🎨 Design Patterns & Architecture Decisions
-
-**Vue 3 Modern Patterns:**
-
-- **Composition API**: All components use `<script setup>` syntax
-- **Composables**: Business logic extracted into reusable composables
-- **Reactivity**: Vue 3 reactivity system with `ref()` and `computed()`
-- **TypeScript Integration**: Full type safety with generic composables
-
-**State Management:**
-
-- **Pinia**: Modern Vue state management for global state
-- **Local State**: Component-specific state in composables
-- **Store Modules**: Feature-specific stores (notifications, subscribers)
-
 **Component Architecture:**
 
 - **Feature Modules**: Self-contained domains with clear boundaries
-- **Clean Architecture**: Components → Composables → Services → API
 - **Separation of Concerns**: UI logic separate from business logic
-- **Type Safety**: Strict TypeScript with comprehensive interfaces
-
-**Error Handling & UX:**
-
-- **Global Notifications**: Centralized user feedback system
-- **Form Validation**: Real-time validation with user-friendly messages
-- **Loading States**: Consistent loading indicators and states
-- **Error Recovery**: Graceful error handling with retry mechanisms
 
 ## 🔗 API Integration & Mocked Data
 
@@ -109,12 +70,12 @@ export const API_ENDPOINTS = {
 }
 ```
 
-**Mock Data Sources:**
+**⚠️Mock Data Sources:**
 
 1. **API Endpoints**: Using `https://httpstat.us` for testing HTTP responses
 2. **Business Rules**: Hard-coded constants in `src/features/quota-management/constants/`
 3. **Reason Codes**: Predefined options
-4. **Subscriber Data**: Currently mocked in components (needs backend integration)
+4. **Subscriber Data**: List of subscribers is mocked inside store. I nfuture it would come from api call or be generated on server side.
 
 **API Service Layer** (`src/features/quota-management/services/managementApi.ts`):
 
@@ -188,7 +149,8 @@ npm run preview              # Preview production build
 - ✅ `useQuotaManagement.test.ts` (27 tests) - Form state management & validation
 - ✅ `useQuotaCalculations.test.ts` (20 tests) - Business logic validation
 - ✅ `useQuotaSubmission.test.ts` (5 tests) - API integration logic
-- ✅ `useQuotaModal.test.ts` (8 tests) - Modal state management
+- ✅ `useQuotaModal.test.ts` (6 tests) - Quota modal component
+- ✅ `useNumberStepper.test.ts` (30 tests) - Shared component
 
 **Shared Components (34 tests):**
 
@@ -202,6 +164,7 @@ npm test                      # Run all unit tests
 npm run test:watch           # Watch mode for development
 npm run test:coverage        # Generate HTML coverage report
 ```
+
 
 ## 🔧 Technology Stack
 
