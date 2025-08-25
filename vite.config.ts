@@ -14,10 +14,10 @@ export default defineConfig({
       '@app': fileURLToPath(new URL('./src/app', META_URL)),
       '@shared': fileURLToPath(new URL('./src/shared', META_URL)),
       '@features': fileURLToPath(new URL('./src/features', META_URL)),
-      '@quota': fileURLToPath(
+      '@quota-management': fileURLToPath(
         new URL('./src/features/quota-management', META_URL)
       ),
-      '@subscribers': fileURLToPath(
+      '@subscriber-management': fileURLToPath(
         new URL('./src/features/subscriber-management', META_URL)
       ),
       '@back-office': fileURLToPath(

@@ -1,14 +1,14 @@
-export { useQuotaCalculations } from '@quota/composables/useQuotaCalculations'
-export { useQuotaManagement } from '@quota/composables/useQuotaManagement'
-export { useQuotaSubmission } from '@quota/composables/useQuotaSubmission'
+export { useQuotaCalculations } from '@quota-management/composables/useQuotaCalculations'
+export { useQuotaManagement } from '@quota-management/composables/useQuotaManagement'
+export { useQuotaSubmission } from '@quota-management/composables/useQuotaSubmission'
 
-export { quotaService } from '@quota/services/managementApi'
+export { quotaService } from '@quota-management/services/managementApi'
 
 export type {
   QuotaAdjustment,
   QuotaAdjustmentResponse,
   ReasonType
-} from '@quota/types/quota'
+} from '@quota-management/types/quota'
 
-export { MAX_QUOTA, MIN_QUOTA } from '@quota/constants/quota'
-export { REASON_OPTIONS } from '@quota/constants/reasons'
+export { MAX_QUOTA, MIN_QUOTA } from '@quota-management/constants/quota'
+export { REASON_OPTIONS } from '@quota-management/constants/reasons'

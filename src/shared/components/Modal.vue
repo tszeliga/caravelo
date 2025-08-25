@@ -94,9 +94,9 @@ const handleModalClose = (): void => {
 }
 
 // Handle modal save - use composable and emit result
-const handleModalSave = async (): Promise<void> => {
+const handleModalSave = (): void => {
   try {
-    await composableHandleSave()
+    composableHandleSave()
     emit('save')
     emit('update:modelValue', false)
   } catch (error) {

@@ -1,7 +1,7 @@
 // Subscriber Management Feature Exports
-export { default as SubscriberCard } from '@subscribers/components/SubscriberCard.vue'
-export { default as SubscribersList } from '@subscribers/components/SubscribersList.vue'
+export { default as SubscriberCard } from '@subscriber-management/components/SubscriberCard.vue'
+export { default as SubscribersList } from '@subscriber-management/components/SubscribersList.vue'
 
-export { useSubscribersStore } from '@subscribers/stores/subscribers'
+export { useSubscribersStore } from '@subscriber-management/stores/subscribers'
 
-export type { Subscriber } from '@subscribers/types/subscriber'
+export type { Subscriber } from '@subscriber-management/types/subscriber'

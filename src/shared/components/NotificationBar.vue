@@ -35,33 +35,14 @@
 <script setup lang="ts">
 import { useNotificationStore } from '@/shared/stores/notifications'
 import type { NotificationType } from '@/shared/types/notifications'
-import { computed, nextTick, ref, watch } from 'vue'
+import { computed, ref } from 'vue'
 
 const notificationStore = useNotificationStore()
 const animatingOut = ref<Set<string>>(new Set())
 const animatingIn = ref<Set<string>>(new Set())
+const ANIMATION_DELETE_TIMEOUT = 300
 
 const notifications = computed(() => notificationStore.notifications)
-
-// Watch for new notifications and trigger enter animation
-watch(
-  notifications,
-  async (newNotifications, oldNotifications = []) => {
-    const newIds = newNotifications
-      .filter(n => !oldNotifications.some(o => o.id === n.id))
-      .map(n => n.id)
-
-    for (const id of newIds) {
-      animatingIn.value.add(id)
-      await nextTick()
-      // Remove from animatingIn after a brief moment to trigger the animation
-      setTimeout(() => {
-        animatingIn.value.delete(id)
-      }, 10)
-    }
-  },
-  { immediate: false }
-)
 
 // Remove notification with animation
 const removeNotification = (id: string): void => {
@@ -71,7 +52,7 @@ const removeNotification = (id: string): void => {
   setTimeout(() => {
     notificationStore.removeNotification(id)
     animatingOut.value.delete(id)
-  }, 300)
+  }, ANIMATION_DELETE_TIMEOUT)
 }
 
 const notificationConfig = {
@@ -147,8 +128,6 @@ const getNotificationIcon = (type: NotificationType): string => {
   flex-shrink: 0;
   margin-left: auto;
 }
-
-/* Smooth transitions - no keyframes needed */
 
 /* Mobile responsive */
 @media (max-width: 600px) {

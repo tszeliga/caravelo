@@ -7,19 +7,16 @@ export interface ModalState<T = Record<string, unknown>> {
 }
 
 export function useModal<T = Record<string, unknown>>() {
-  // Modal state
   const isModalOpen = ref<boolean>(false)
   const modalData = ref<T | null>(null)
   const isLoading = ref<boolean>(false)
 
-  // Computed properties
   const modalState = computed<ModalState<T>>(() => ({
     isOpen: isModalOpen.value,
     data: modalData.value,
     isLoading: isLoading.value
   }))
 
-  // Modal actions
   const openModal = (data?: T): void => {
     modalData.value = data || null
     isModalOpen.value = true
@@ -35,20 +32,9 @@ export function useModal<T = Record<string, unknown>>() {
     closeModal()
   }
 
-  const handleSave = async (): Promise<void> => {
-    try {
-      isLoading.value = true
-
-      // Simulate API call
-      await new Promise(resolve => setTimeout(resolve, 1000))
-
-      // Close modal on successful save
-      closeModal()
-    } catch (error) {
-      console.error('Error saving modal data:', error)
-    } finally {
-      isLoading.value = false
-    }
+  const handleSave = (): void => {
+    isLoading.value = false
+    closeModal()
   }
 
   const setModalData = (data: T): void => {
@@ -62,13 +48,11 @@ export function useModal<T = Record<string, unknown>>() {
   }
 
   return {
-    // State
     isModalOpen,
     modalData,
     isLoading,
     modalState,
 
-    // Actions
     openModal,
     closeModal,
     handleClose,

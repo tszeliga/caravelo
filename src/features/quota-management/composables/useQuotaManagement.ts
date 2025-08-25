@@ -13,10 +13,6 @@ import { computed, readonly, ref, type Ref } from 'vue'
 
 /**
  * Composable for managing quota form state, validation, and submission
- * Handles reason selection, quota adjustments, form validation, UI state management, and form submission
- * @param quota - The original quota value to manage adjustments against
- * @param subscriber - Reactive reference to the subscriber object for submission
- * @returns Object containing form state, validation, submission methods, and management functions
  */
 export function useQuotaManagement(quota: number, subscriber: Ref<Subscriber>) {
   const reason = ref<ReasonType>(null)

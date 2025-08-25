@@ -6,7 +6,6 @@ import { ref } from 'vue'
 /**
  * Composable for handling quota adjustment submissions
  * Provides reactive state management and API interaction for quota modifications
- * @returns Object containing submission state, methods, and error handling
  */
 export function useQuotaSubmission() {
   const isSubmitting = ref(false)
@@ -15,10 +14,6 @@ export function useQuotaSubmission() {
   /**
    * Submits quota adjustment request to the API
    * Handles loading state, error management, and success callbacks
-   * @param subscriber - The subscriber whose quota is being adjusted
-   * @param formData - Form data containing reason and quota values
-   * @param onSuccess - Optional callback executed on successful submission
-   * @returns Promise resolving to success/error result object
    */
   const submitQuotaAdjustment = async (
     subscriber: Subscriber,
@@ -85,11 +80,8 @@ export function useQuotaSubmission() {
 
   return {
     isSubmitting,
-    /** Reactive string containing any submission error message */
     submissionError,
-    /** Function to submit quota adjustment with error handling */
     submitQuotaAdjustment,
-    /** Function to clear the current error state */
     clearError
   }
 }

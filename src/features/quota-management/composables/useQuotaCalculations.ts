@@ -7,9 +7,6 @@ import { computed, type Ref } from 'vue'
 /**
  * Composable for quota-related calculations and validations
  * Provides reactive computations for quota validation, comparison, and UI state
- * @param adjustedQuota - Reactive reference to the adjusted quota value
- * @param quota - The original quota value for comparison
- * @returns Object containing computed validation states and utility functions
  */
 export function useQuotaCalculations(
   adjustedQuota: Ref<number>,
@@ -27,10 +24,6 @@ export function useQuotaCalculations(
 
   /**
    * Determines if the reason should be reset based on quota change logic
-   * @param previousQuota - The quota value currently set in the form
-   * @param nextQuota - The new quota value the user is trying to set
-   * @param originalQuota - The original quota value (baseline)
-   * @returns true if reason should be reset, false otherwise
    */
   const shouldResetReason = (
     previousQuota: number,

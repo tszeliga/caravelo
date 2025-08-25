@@ -1,5 +1,5 @@
 import { useQuotaSubmission } from '@/features/quota-management/composables/useQuotaSubmission'
-import type { Subscriber } from '@subscribers/types/subscriber'
+import type { Subscriber } from '@subscriber-management/types/subscriber'
 import { beforeEach, describe, expect, it, vi } from 'vitest'
 
 // Mock the quota service at the module level

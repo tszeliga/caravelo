@@ -1,1 +1,1 @@
-export { default } from '@quota/components/ManageQuotaModal/ManageQuotaModal.vue'
+export { default } from '@quota-management/components/ManageQuotaModal/ManageQuotaModal.vue'

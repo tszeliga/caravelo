@@ -9,8 +9,8 @@
       "@app/*": ["./src/app/*"],
       "@shared/*": ["./src/shared/*"],
       "@features/*": ["./src/features/*"],
-      "@quota/*": ["./src/features/quota-management/*"],
-      "@subscribers/*": ["./src/features/subscriber-management/*"],
+      "@quota-management/*": ["./src/features/quota-management/*"],
+      "@subscriber-management/*": ["./src/features/subscriber-management/*"],
       "@back-office/*": ["./src/features/back-office/*"]
     },
     "strict": true,

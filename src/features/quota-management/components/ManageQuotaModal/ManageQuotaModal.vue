@@ -104,11 +104,11 @@ import {
   MIN_QUOTA
 } from '@/features/quota-management/constants/quota'
 import type { ReasonType } from '@/features/quota-management/types/quota'
-import SubscriberCard from '@/features/subscriber-management/components/SubscriberCard.vue'
-import type { Subscriber } from '@/features/subscriber-management/types/subscriber'
 import ErrorAlert from '@/shared/components/ErrorAlert'
 import Modal from '@/shared/components/Modal.vue'
 import NumberStepper from '@/shared/components/NumberStepper/NumberStepper.vue'
+import SubscriberCard from '@subscriber-management/components/SubscriberCard.vue'
+import type { Subscriber } from '@subscriber-management/types/subscriber'
 import { computed, toRefs } from 'vue'
 
 interface Props {

@@ -9,6 +9,7 @@ interface UseNumberStepperProps {
   placeholder?: string
 }
 
+// No need to use toRefs for reactivity
 export function useNumberStepper(
   props: UseNumberStepperProps,
   emit: {
@@ -21,18 +22,22 @@ export function useNumberStepper(
   )
 
   const displayValue = computed(() => {
-    if (props.modelValue === 0 && props.placeholder) {
+    // Ensure we have a valid number
+    const value = Number.isNaN(props.modelValue) ? 0 : props.modelValue
+    if (value === 0 && props.placeholder) {
       return props.placeholder
     }
-    return props.modelValue.toString()
+    return value.toString()
   })
 
   const isMinReached = computed(() => {
-    return props.min !== undefined && props.modelValue <= props.min
+    const value = Number.isNaN(props.modelValue) ? 0 : props.modelValue
+    return props.min !== undefined && value <= props.min
   })
 
   const isMaxReached = computed(() => {
-    return props.max !== undefined && props.modelValue >= props.max
+    const value = Number.isNaN(props.modelValue) ? 0 : props.modelValue
+    return props.max !== undefined && value >= props.max
   })
 
   const increment = () => {
@@ -40,7 +45,8 @@ export function useNumberStepper(
       return
     }
 
-    const newValue = props.modelValue + props.step
+    const currentValue = Number.isNaN(props.modelValue) ? 0 : props.modelValue
+    const newValue = currentValue + props.step
     const finalValue =
       props.max !== undefined ? Math.min(newValue, props.max) : newValue
 
@@ -53,7 +59,8 @@ export function useNumberStepper(
       return
     }
 
-    const newValue = props.modelValue - props.step
+    const currentValue = Number.isNaN(props.modelValue) ? 0 : props.modelValue
+    const newValue = currentValue - props.step
     const finalValue =
       props.min !== undefined ? Math.max(newValue, props.min) : newValue
 

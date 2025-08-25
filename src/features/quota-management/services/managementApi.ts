@@ -1,7 +1,7 @@
 import type {
   QuotaAdjustment,
   QuotaAdjustmentResponse
-} from '@quota/types/quota'
+} from '@quota-management/types/quota'
 import { API_ENDPOINTS } from '@shared/constants/api'
 import { httpClient } from '@shared/services/api/httpClient'
 import type { ApiResponse } from '@shared/types/api'
@@ -14,9 +14,6 @@ import { AxiosError } from 'axios'
  * Ensures type safety and consistent API across implementations.
  */
 export interface QuotaServiceInterface {
-  /**
-   * Adjust a subscriber's quota
-   */
   adjustQuota(adjustment: QuotaAdjustment): Promise<QuotaAdjustmentResponse>
 }
 
@@ -27,12 +24,7 @@ export interface QuotaServiceInterface {
  * Provides error handling, type-safe responses, and business logic abstraction.
  */
 class QuotaService implements QuotaServiceInterface {
-  /**
-   * Adjust a subscriber's quota
-   *
-   * @description Makes API call to update subscriber quota with proper error handling.
-   * Transforms API response into standardized format for UI consumption.
-   */
+
   async adjustQuota({
     subscriberId,
     newQuota,
@@ -62,10 +54,6 @@ class QuotaService implements QuotaServiceInterface {
 
   /**
    * Handle HTTP and network errors
-   *
-   * @description Centralizes error handling logic for API calls.
-   * Categorizes errors into response, network, and unknown types.
-   * Provides user-friendly error messages while preserving technical details.
    */
   private handleError(
     error: AxiosError,

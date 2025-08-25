@@ -1,2 +1,2 @@
 export { useNotificationStore } from '@shared/stores/notifications'
-export { useSubscribersStore } from '@subscribers/stores/subscribers'
+export { useSubscribersStore } from '@subscriber-management/stores/subscribers'
